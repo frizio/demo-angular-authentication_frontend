@@ -1,7 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { SpecialEventsComponent } from './components/special-events/special-events.component';
+import { EventsComponent } from './components/events/events.component';
+
+const routes: Routes = [
+    {path: '', redirectTo: '/events', pathMatch: 'full'},
+    {path: 'events', component: EventsComponent},
+    {path: 'special', component: SpecialEventsComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'register', component: RegisterComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

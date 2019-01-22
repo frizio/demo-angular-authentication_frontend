@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './../../services/authentication.service';
 
@@ -11,7 +12,8 @@ export class LoginComponent implements OnInit {
   public loginUserData = {};
 
   constructor(
-    private _authentication: AuthenticationService
+    private _authentication: AuthenticationService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -25,6 +27,7 @@ export class LoginComponent implements OnInit {
             (res) => {
               console.log("The response is  " + JSON.stringify(res));
               localStorage.setItem("token", res.token);
+              this._router.navigate(["/special"]);
             },
             (err) => console.log("There is an error" + JSON.stringify(err))
           );

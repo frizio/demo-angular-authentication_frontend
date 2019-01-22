@@ -9,11 +9,11 @@ export class AuthenticationService {
   private _registerUrl = "http://localhost:3000/api/register";
 
   constructor(
-    private http: HttpClient
+    private _http: HttpClient
   ) { }
 
   registerUser(user) {
-    return this.http.post<any>(this._registerUrl, user);
+    return this._http.post<any>(this._registerUrl, user);
   }
 
 }

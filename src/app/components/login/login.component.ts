@@ -22,7 +22,10 @@ export class LoginComponent implements OnInit {
     this._authentication
           .loginUser(this.loginUserData)
           .subscribe(
-            (res) => console.log("The response is  " + JSON.stringify(res)),
+            (res) => {
+              console.log("The response is  " + JSON.stringify(res));
+              localStorage.setItem("token", res.token);
+            },
             (err) => console.log("There is an error" + JSON.stringify(err))
           );
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from './../../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +10,21 @@ export class LoginComponent implements OnInit {
 
   public loginUserData = {};
 
-  constructor() { }
+  constructor(
+    private _authentication: AuthenticationService
+  ) { }
 
   ngOnInit() {
   }
 
   loginUser() {
     console.log("Login the user " + JSON.stringify(this.loginUserData));
-
+    this._authentication
+          .loginUser(this.loginUserData)
+          .subscribe(
+            (res) => console.log("The response is  " + JSON.stringify(res)),
+            (err) => console.log("There is an error" + JSON.stringify(err))
+          );
   }
 
 }

@@ -13,7 +13,8 @@ export class AuthenticationGuard implements CanActivate {
   ) {}
 
   canActivate(): boolean {
-    if (this._authentication.loggedIn) {
+    console.log("Chiamato canActivate()");
+    if (this._authentication.loggedIn()) {
       return true;
     } else {
       this._router.navigate(['/login']);

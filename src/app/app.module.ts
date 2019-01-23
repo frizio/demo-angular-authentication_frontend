@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AuthenticationService } from './services/authentication.service';
 import { EventService } from './services/event.service';
+import { AuthenticationGuard } from './utils/authentication.guard';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EventService } from './services/event.service';
   ],
   providers: [
     AuthenticationService, 
-    EventService
+    EventService,
+    AuthenticationGuard
   ],
   bootstrap: [AppComponent]
 })

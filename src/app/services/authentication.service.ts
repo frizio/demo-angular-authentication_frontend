@@ -24,7 +24,7 @@ export class AuthenticationService {
   }
 
   loggedIn() {
-    console.log( "Check if user is loggedIn " + !!localStorage.getItem("token") );
+    //console.log( "Check if user is loggedIn " + !!localStorage.getItem("token") );
     return !!localStorage.getItem("token");
   }
 
